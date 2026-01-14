@@ -1,0 +1,97 @@
+// Main Menu Algorithm
+
+START
+    Create Seats by 5 rows x 6 column format with "O"
+
+    Load booking data
+    Mark seats with X if there is booking ticket
+
+    Display Menu
+    If Choice = 1
+        Book Ticket 
+    If Choice = 2
+        Display Seat Layout 
+    If Choice = 3
+        Cancel Booking 
+    If Choice = 4
+        Search Passengers 
+    If Choice = 5
+        Save ticket file
+        Exit
+
+    ELSE
+        Display invalid output
+
+END 
+
+// Booking Algorithm
+
+START
+    INPUT Passenger name
+    INPUT flight code
+    Display seats
+
+    INPUT to select seat by row and column
+
+    IF selected seat is available
+        Mark seat as booked
+        Create a passenger record
+        Store passenger details
+        Display booked successful message
+
+    ELSE
+        Display unavailable seat message
+    END IF
+
+// Search Passenger Algorithm
+
+INPUT passenger name
+
+FOR passengers in list
+    IF name matches in passenger record
+        DISPLAY passenger details
+    END IF
+END FOR
+
+IF no passenger name found
+    DISPLAY no passenger found message
+END IF
+
+// Cancel Booking Algorithm
+
+INPUT seat row and column
+
+FOR passengers in list
+    IF seat number is the same
+        Remove seat 
+        Mark seat as available
+        DISPLAY cancellation success message
+    END IF
+END FOR
+
+IF seat number is not the same
+    DISPLAY booking not found message
+
+// File Handling Algorithm
+
+/ Save Booking Ticket
+
+OPEN booking ticket file
+
+For passengers
+    Write passenger details in file
+END FOR
+
+CLOSE
+
+/ Load Booking Ticket
+
+OPEN booking ticket file
+
+FOR Each record in file
+    Read passenger details
+    Store passenger in list
+    Mark seat as booked
+END FOR
+
+CLOSE
